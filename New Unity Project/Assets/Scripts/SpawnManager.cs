@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour 
 {
@@ -19,6 +21,9 @@ public class SpawnManager : MonoBehaviour
 	[SerializeField] private GameObject _ogre;
 	[SerializeField] private GameObject _orc;
 	[SerializeField] private GameObject _troll;
+	[SerializeField] private int _waveDelay;
+	[SerializeField] private Text _timerText;
+	[SerializeField] private GameObject _timer;
 
 	private int _wavesCount;
 	private int _wavesLeft;
@@ -48,10 +53,29 @@ public class SpawnManager : MonoBehaviour
 		--_waveCount;
 		if (_waveCount == 0)
 		{
-			
+			IntializeWave();
 		}
 	}
-	
+
+	private IEnumerator StartWave()
+	{
+		_timer.SetActive(true);
+		int wait = _waveDelay;
+		_timerText.text = wait.ToString();
+		while (wait >= 0)
+		{
+			yield return new WaitForSecondsRealtime(1);
+			--wait;
+			_timerText.text = wait.ToString();
+		}
+		_timer.SetActive(false);
+		InitializeMonsters();
+	}
+
+	private void InitializeMonsters()
+	{
+		
+	}
 	
 	// Update is called once per frame
 	void Update () {
