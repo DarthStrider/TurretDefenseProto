@@ -22,6 +22,7 @@ public class Monster : MonoBehaviour {
         _agent.speed = _movementSpeed;
         _agent.destination = _goal.position;
 	    _animator = gameObject.GetComponent<Animator>();
+	    _totalHealth = _health;
 	    _animator.SetBool ("move", true);
 	    SetHealthBar();
 	}
