@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.Mime;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class SpawnManager : MonoBehaviour 
 {
@@ -22,12 +22,12 @@ public class SpawnManager : MonoBehaviour
 	[SerializeField] private GameObject _orc;
 	[SerializeField] private GameObject _troll;
 	[SerializeField] private int _waveDelay;
-	[SerializeField] private Text _timerText;
+	[SerializeField] private TextMeshProUGUI _timerText;
 	[SerializeField] private GameObject _timer;
 
 	private int _wavesCount;
-	private int _wavesLeft;
 	private int _waveCount;
+	private int _currentWave;
 
 	
 
@@ -36,15 +36,16 @@ public class SpawnManager : MonoBehaviour
 	{
 		instance = this;
 		_wavesCount = 0;
-		_wavesLeft = _waves.Count;
+		_currentWave = 0;
+		IntializeWave();
 	}
 
 	private void IntializeWave()
 	{
-		if (_wavesLeft != 0)
+		if (_currentWave < _waves.Count)
 		{
-			--_wavesLeft;
-			_waveCount = _waves[_wavesLeft].Ogre + _waves[_wavesLeft].Orc + _waves[_wavesLeft].Troll;
+			_waveCount = _waves[_currentWave].Ogre + _waves[_currentWave].Orc + _waves[_currentWave].Troll;
+			StartCoroutine(StartWave());
 		}
 	}
 
@@ -74,7 +75,42 @@ public class SpawnManager : MonoBehaviour
 
 	private void InitializeMonsters()
 	{
-		
+		var wave = _waves[_currentWave];
+		++_currentWave;
+		InitializeMonster(MonsterTyoe.Ogre, wave.Ogre);
+		InitializeMonster(MonsterTyoe.Orc, wave.Orc);
+		InitializeMonster(MonsterTyoe.Troll,wave.Troll);
+	}
+
+	private void InitializeMonster(MonsterTyoe type, int amount)
+	{
+		GameObject monster;
+		if (type == MonsterTyoe.Ogre)
+		{
+			monster = _ogre;
+		}
+		else if (type == MonsterTyoe.Orc)
+		{
+			monster = _orc;
+		}
+		else
+		{
+			monster = _troll;
+		}
+		for (int i = 0; i < amount; i++)
+		{
+			int intializeSpot = Random.Range(1, 3);
+			if (intializeSpot == 1)
+			{
+				var enemy = Instantiate(monster, _instantiatePostion1.position, Quaternion.identity);
+				enemy.transform.parent = _instantiatePostion1.transform;
+			}
+			else
+			{
+				var enemy = Instantiate(monster, _instantiatePostion2.position, Quaternion.identity);
+				enemy.transform.parent = _instantiatePostion2.transform;
+			}
+		}
 	}
 	
 	// Update is called once per frame
