@@ -6,12 +6,12 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class Monster : MonoBehaviour {
-	private Animator _animator;
+	protected Animator _animator;
     private NavMeshAgent _agent;
     private Transform _goal;
 	private float _totalHealth;
 
-    [SerializeField] private float _health;
+    [SerializeField] protected float _health;
     [SerializeField] private float _movementSpeed;
 	[SerializeField] private Image _healthBar;
 
@@ -38,27 +38,14 @@ public class Monster : MonoBehaviour {
 			}
 	}
 	
-	private void SetHealthBar()
+	protected void SetHealthBar()
 	{
 		float percent = _health / _totalHealth;
 		_healthBar.transform.localScale = new Vector3(percent,1,1);
 	}
-	private void TookDamage(float amount)
-	{
-		if (_health - amount <= 0)
-		{
-			_health = 0;
-			_animator.SetBool ("dead", true);
-			StartCoroutine(WaitToDestroy());
-		}
-		else
-		{
-			_health -= amount;
-			SetHealthBar();
-		}
-	}
 
-	private IEnumerator WaitToDestroy()
+
+	protected IEnumerator WaitToDestroy()
 	{
 		yield return new WaitForSeconds(2);
 		Destroy(this);
