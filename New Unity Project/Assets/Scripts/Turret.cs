@@ -99,9 +99,20 @@ public class Turret : MonoBehaviour
 
 	private void FireGun()
 	{
-		var Enemies = GameObject.FindGameObjectsWithTag("Enemy");
-		for (int i = 0; i < 0; i++) {
+		var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+		float minDistance = _firingDistance;
+		GameObject target = null;
+		for (int i = 0; i < enemies.Length; i++) {
+			float distance = Vector3.Distance (transform.position, enemies[i].transform.position);
+			if (distance < _firingDistance) {
+				if (distance <= minDistance) {
+					target = enemies [i];
+					minDistance = distance;
+				}
+			}
 
+		}
+		if (target != null) {
 		}
 		StartCoroutine (WaitToShoot ());
 	}
