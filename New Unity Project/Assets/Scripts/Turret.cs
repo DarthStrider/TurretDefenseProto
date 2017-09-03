@@ -11,6 +11,8 @@ public class Turret : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI _turretLevelCost;
 	[SerializeField] protected List<TurretLevel> _levels;
 	[SerializeField] private GameObject _upgradeTurret;
+	[SerializeField] protected GameObject _projectile;
+	[SerializeField] private float _firingDistance;
 
 	private TurretSpawning _spawn;
 	public TurretSpawning Spawn
@@ -24,6 +26,9 @@ public class Turret : MonoBehaviour
 	private bool _isButtonOn;
 	private int _maxTurretLevel;
 	protected TurretLevel _level;
+	protected float _fireRate;
+	protected float _damage;
+	protected float _splashDamage;
 	
 
 	// Use this for initialization
@@ -33,8 +38,12 @@ public class Turret : MonoBehaviour
 		_currentLevel = 0;
 		_level = _levels[_currentLevel];
 		_level.Gun.SetActive(true);
+		_fireRate = _level.FireRate;
+		_damage = _level.Damage;
+		_splashDamage = _level.SplashDamage;
 		_turretLevelCost.text = _levels[_currentLevel + 1].LevelCost.ToString();
 		_maxTurretLevel = _levels.Count - 1;
+		StartCoroutine (WaitToShoot);
 	}
 	
 	// Update is called once per frame
@@ -56,12 +65,15 @@ public class Turret : MonoBehaviour
 
 	public void LevelTurret()
 	{
-		if (_economyManager.Gold >= _levels[_currentLevel + 1].LevelCost && _currentLevel + 1 < _maxTurretLevel)
+		if (_economyManager.Gold >= _levels[_currentLevel + 1].LevelCost && _currentLevel + 1 <= _maxTurretLevel)
 		{
 			_level.Gun.SetActive(false);
 			++_currentLevel;
 			_level = _levels[_currentLevel];
 			_level.Gun.SetActive(true);
+			_fireRate = _level.FireRate;
+			_damage = _level.Damage;
+			_splashDamage = _level.SplashDamage;
 			_economyManager.Gold -= _level.LevelCost;
 			if (_currentLevel + 1 != _levels.Count)
 			{
@@ -78,9 +90,24 @@ public class Turret : MonoBehaviour
 			ButtonSwitch();
 		}
 	}
+
+	private IEnumerator WaitToShoot()
+	{
+		yield return new WaitForSecondsRealtime(_fireRate);
+		FireGun ();
+	}
+
+	private void FireGun()
+	{
+		var Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+		for (int i = 0; i < 0; i++) {
+
+		}
+		StartCoroutine (WaitToShoot ());
+	}
 	
 }
-
+	
 [Serializable]
 public class TurretLevel
 {
