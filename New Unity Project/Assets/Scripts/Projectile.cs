@@ -24,7 +24,9 @@ public class Projectile : MonoBehaviour
 	void Update () {
 		if (_target != null)
 		{
-			Vector3 direction = _target.transform.position - transform.position;
+			Vector3 heading = _target.transform.position - transform.position;
+			float distance = heading.magnitude;
+			Vector3 direction = heading / distance;
 			direction = direction.normalized;
 			transform.position = transform.position + (direction * _speed * Time.deltaTime);
 		}

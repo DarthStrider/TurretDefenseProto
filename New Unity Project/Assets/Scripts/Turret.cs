@@ -115,10 +115,12 @@ public class Turret : MonoBehaviour
 		}
 		if (target != null)
 		{
-			Vector3 direction = target.transform.position - _level.Gun.transform.position;
+			Vector3 heading = target.transform.position - _level.Gun.transform.position;
+			float distance = heading.magnitude;
+			Vector3 direction = heading / distance;
 			_level.Gun.transform.forward = direction;
-			var projectile = Instantiate(_projectile, transform.position, Quaternion.identity);
-			projectile.transform.forward = transform.forward;
+			var projectile = Instantiate(_projectile, _level.Gun.transform.position, Quaternion.identity);
+			projectile.transform.forward = _level.Gun.transform.forward;
 			projectile.GetComponent<Projectile>().SetData(_level.Damage,target);
 		}
 		StartCoroutine (WaitToShoot ());
