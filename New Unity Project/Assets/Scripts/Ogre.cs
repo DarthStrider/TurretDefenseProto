@@ -11,18 +11,16 @@ public class Ogre : Monster {
     public override void Start () {
         base.Start(); 
     }
-	
-	// Update is called once per frame
-	public override void Update () {
-		base.Update();
-	}
+
 	
 	private void TookDamage(float amount)
 	{
 		if (_health - amount <= 0)
 		{
 			_health = 0;
+			_animator.SetBool ("move", false);
 			_animator.SetBool ("dead", true);
+			_agent.speed = 0;
 			StartCoroutine(WaitToDestroy());
 			EconomyManager.instance.Gold += _goldGiven;
 
@@ -30,9 +28,27 @@ public class Ogre : Monster {
 		else
 		{
 			_health -= amount;
-			SetHealthBar();
+		}
+		SetHealthBar();
+	}
+	private void OnCollisionEnter(Collision other)
+	{
+		if (other.collider.tag == "Projectile")
+		{
+			var projectile = other.gameObject;
+			var pScript = projectile.GetComponent<Projectile>();
+			float damage = pScript.Damage;
+			_audioSource.Play();
+			TookDamage(damage);
+			Destroy(projectile);
+		}
+		if (other.collider.tag == "Finish")
+		{
+			_animator.SetBool ("dead", true);
+			Destroy (this.gameObject);
+			SpawnManager.instance.MonsterReachedGoal();
+			SpawnManager.instance.MonsterDied();
 		}
 	}
-
 	
 }

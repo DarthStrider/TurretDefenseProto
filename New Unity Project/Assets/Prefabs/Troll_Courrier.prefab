@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 8257492}
   - component: {fileID: 114616277064925398}
   - component: {fileID: 195147811025444262}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Troll_Courrier
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1134,6 +1134,7 @@ Transform:
   m_Children:
   - {fileID: 441918}
   - {fileID: 492316}
+  - {fileID: 4611191733640074}
   - {fileID: 22473416}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -2136,9 +2137,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118188}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -2609,7 +2610,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189858}
-  m_LocalRotation: {x: 0, y: 0.0057262247, z: 0, w: -0.9999836}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
@@ -2617,8 +2618,8 @@ RectTransform:
   - {fileID: 22445878}
   - {fileID: 22412324}
   m_Father: {fileID: 405412}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 2.779}
@@ -2647,6 +2648,34 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 118188}
   m_IsPrefabParent: 1
+--- !u!1 &1640352788600822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4611191733640074}
+  m_Layer: 0
+  m_Name: Hitbox
+  m_TagString: Hitbox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4611191733640074
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1640352788600822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.037, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 405412}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114616277064925398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2661,6 +2690,8 @@ MonoBehaviour:
   _health: 100
   _movementSpeed: 20
   _healthBar: {fileID: 11434608}
+  _audioSource: {fileID: 8257492}
+  _goldGiven: 10
 --- !u!195 &195147811025444262
 NavMeshAgent:
   m_ObjectHideFlags: 1

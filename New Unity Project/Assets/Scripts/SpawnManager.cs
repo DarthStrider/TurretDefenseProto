@@ -24,16 +24,22 @@ public class SpawnManager : MonoBehaviour
 	[SerializeField] private int _waveDelay;
 	[SerializeField] private TextMeshProUGUI _timerText;
 	[SerializeField] private GameObject _timer;
+	[SerializeField] private TextMeshProUGUI _wave;
+	[SerializeField] private int _deathCount;
+	[SerializeField] private TextMeshProUGUI _deathTotal;
 
 	private int _wavesCount;
 	private int _waveCount;
 	private int _currentWave;
+	private int _deathAmount;
 
 	
 
 	// Use this for initialization
 	void Start ()
 	{
+		_deathAmount = 0;
+		UpdateDeathCount();
 		instance = this;
 		_wavesCount = 0;
 		_currentWave = 0;
@@ -44,9 +50,30 @@ public class SpawnManager : MonoBehaviour
 	{
 		if (_currentWave < _waves.Count)
 		{
+			SetWave();
 			_waveCount = _waves[_currentWave].Ogre + _waves[_currentWave].Orc + _waves[_currentWave].Troll;
 			StartCoroutine(StartWave());
 		}
+	}
+
+	public void MonsterReachedGoal()
+	{
+		++_deathAmount;
+		UpdateDeathCount();
+		if (_deathAmount == _deathCount)
+		{
+			
+		}
+	}
+
+	private void UpdateDeathCount()
+	{
+		_deathTotal.text = String.Format("{0}/{1}",_deathAmount, _deathCount);
+	}
+
+	private void SetWave()
+	{
+		_wave.text = String.Format("{0}/{1}", _currentWave+1,_waves.Count);
 	}
 
 	public void MonsterDied()

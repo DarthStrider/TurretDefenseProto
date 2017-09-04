@@ -1286,18 +1286,18 @@ MonoBehaviour:
   _levels:
   - Gun: {fileID: 169104}
     LevelCost: 0
-    FireRate: 2
-    Damage: 10
-    SplashDamage: 0
-  - Gun: {fileID: 125846}
-    LevelCost: 10
     FireRate: 1.5
     Damage: 20
     SplashDamage: 0
+  - Gun: {fileID: 125846}
+    LevelCost: 10
+    FireRate: 1
+    Damage: 30
+    SplashDamage: 0
   - Gun: {fileID: 178398}
     LevelCost: 20
-    FireRate: 1
-    Damage: 25
+    FireRate: 0.75
+    Damage: 30
     SplashDamage: 0
   _upgradeTurret: {fileID: 1391646287587396}
   _projectile: {fileID: 1995582405907768, guid: d0a237eefe5435145ac6bfedb82d4006,

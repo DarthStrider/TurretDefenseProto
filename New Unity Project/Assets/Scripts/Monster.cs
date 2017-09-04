@@ -7,13 +7,15 @@ using UnityEngine.UI;
 
 public class Monster : MonoBehaviour {
 	protected Animator _animator;
-    private NavMeshAgent _agent;
+    protected NavMeshAgent _agent;
     private Transform _goal;
 	private float _totalHealth;
 
     [SerializeField] protected float _health;
     [SerializeField] private float _movementSpeed;
 	[SerializeField] private Image _healthBar;
+	[SerializeField] protected AudioSource _audioSource;
+	
 
 	// Use this for initialization
     public virtual void Start () {
@@ -27,17 +29,7 @@ public class Monster : MonoBehaviour {
 	    SetHealthBar();
 	}
 
-	
-	// Update is called once per frame
-	public virtual void Update () {
-			if(Vector3.Distance(transform.position,_goal.position) <=4)
-			{
-				_animator.SetBool ("dead", true);
-				Destroy (this.gameObject);
-				SpawnManager.instance.MonsterDied();
-			}
-	}
-	
+
 	protected void SetHealthBar()
 	{
 		float percent = _health / _totalHealth;
@@ -48,7 +40,7 @@ public class Monster : MonoBehaviour {
 	protected IEnumerator WaitToDestroy()
 	{
 		yield return new WaitForSeconds(2);
-		Destroy(this);
+		Destroy(this.gameObject);
 		SpawnManager.instance.MonsterDied();
 	}
 }

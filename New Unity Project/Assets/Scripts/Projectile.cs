@@ -30,5 +30,17 @@ public class Projectile : MonoBehaviour
 			direction = direction.normalized;
 			transform.position = transform.position + (direction * _speed * Time.deltaTime);
 		}
+		else
+		{
+			Destroy(this.gameObject);
+		}
+	}
+	
+	private void OnCollisionEnter(Collision other)
+	{
+		if (other.collider.tag == "Terrain")
+		{
+			Debug.Log("I AM HERE");
+		}
 	}
 }

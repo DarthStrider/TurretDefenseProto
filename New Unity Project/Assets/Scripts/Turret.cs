@@ -100,7 +100,7 @@ public class Turret : MonoBehaviour
 
 	private void FireGun()
 	{
-		var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+		var enemies = GameObject.FindGameObjectsWithTag("Hitbox");
 		float minDistance = _firingDistance;
 		GameObject target = null;
 		for (int i = 0; i < enemies.Length; i++) {
@@ -115,7 +115,7 @@ public class Turret : MonoBehaviour
 		}
 		if (target != null)
 		{
-			Vector3 heading = target.transform.position - _level.Gun.transform.position;
+			Vector3 heading = target.transform.position - transform.position;
 			float distance = heading.magnitude;
 			Vector3 direction = heading / distance;
 			_level.Gun.transform.forward = direction;
