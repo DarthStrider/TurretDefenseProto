@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using TMPro;
@@ -43,7 +44,7 @@ public class Turret : MonoBehaviour
 		_splashDamage = _level.SplashDamage;
 		_turretLevelCost.text = _levels[_currentLevel + 1].LevelCost.ToString();
 		_maxTurretLevel = _levels.Count - 1;
-		StartCoroutine (WaitToShoot);
+		StartCoroutine (WaitToShoot());
 	}
 	
 	// Update is called once per frame
@@ -112,7 +113,13 @@ public class Turret : MonoBehaviour
 			}
 
 		}
-		if (target != null) {
+		if (target != null)
+		{
+			Vector3 direction = target.transform.position - _level.Gun.transform.position;
+			_level.Gun.transform.forward = direction;
+			var projectile = Instantiate(_projectile, transform.position, Quaternion.identity);
+			projectile.transform.forward = transform.forward;
+			projectile.GetComponent<Projectile>().SetData(_level.Damage,target);
 		}
 		StartCoroutine (WaitToShoot ());
 	}

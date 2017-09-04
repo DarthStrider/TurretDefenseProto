@@ -1523,6 +1523,8 @@ MonoBehaviour:
     Damage: 50
     SplashDamage: 20
   _upgradeTurret: {fileID: 1917921352344260}
+  _projectile: {fileID: 144062, guid: 9e55cf4574f6ae449a0cb84e16dc2bda, type: 2}
+  _firingDistance: 100
 --- !u!114 &114594217933404494
 MonoBehaviour:
   m_ObjectHideFlags: 1

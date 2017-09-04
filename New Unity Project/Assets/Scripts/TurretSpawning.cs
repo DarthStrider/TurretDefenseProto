@@ -98,7 +98,6 @@ public class TurretSpawning : MonoBehaviour
 
 	private void BuildTurret(GameObject turret, TurretType type)
 	{
-		Debug.Log("TYPE" + type);
 		var gun = Instantiate(turret, transform.position, Quaternion.identity);
 		gun.transform.forward = transform.forward;
 		if (type == TurretType.Acid)
