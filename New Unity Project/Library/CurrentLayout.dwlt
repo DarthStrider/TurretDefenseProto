@@ -178,8 +178,8 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 1067
-  m_MinSize: {x: 877, y: 492}
-  m_MaxSize: {x: 18002, y: 14042}
+  m_MinSize: {x: 879, y: 492}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
   controlID: 25
 --- !u!114 &9
@@ -224,8 +224,8 @@ MonoBehaviour:
     y: 0
     width: 752
     height: 796
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -305,8 +305,8 @@ MonoBehaviour:
     y: 0
     width: 346
     height: 1067
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 25}
   m_Panes:
   - {fileID: 25}
@@ -403,8 +403,8 @@ MonoBehaviour:
     m_VRangeLocked: 0
     m_HBaseRangeMin: -240.5
     m_HBaseRangeMax: 240.5
-    m_VBaseRangeMin: -135.28125
-    m_VBaseRangeMax: 135.28125
+    m_VBaseRangeMin: -150.3125
+    m_VBaseRangeMax: 150.3125
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -470,14 +470,14 @@ MonoBehaviour:
     width: 750
     height: 775
   m_SceneLighting: 1
-  lastFramingTime: 23822.67860714629
+  lastFramingTime: 1232.8880049626202
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 113.117744, y: 34.027298, z: 468.7221}
+    m_Target: {x: 229.4895, y: -100.073944, z: 190.85362}
     speed: 2
-    m_Value: {x: 113.117744, y: 34.027298, z: 468.7221}
+    m_Value: {x: 229.4895, y: -100.073944, z: 190.85362}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -500,13 +500,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.0038338364, y: -0.76949775, z: 0.0046192217, w: 0.6386214}
+    m_Target: {x: -0.33579898, y: 0.43371463, z: -0.1782816, w: -0.8169127}
     speed: 2
-    m_Value: {x: 0.0038338364, y: -0.76949775, z: 0.0046192217, w: 0.6386214}
+    m_Value: {x: -0.33579898, y: 0.43371463, z: -0.1782816, w: -0.8169127}
   m_Size:
-    m_Target: 89.072235
+    m_Target: 393.04874
     speed: 2
-    m_Value: 89.072235
+    m_Value: 393.04874
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -673,19 +673,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Prefabs/Towers
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Prefabs/Towers
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Kyle\Documents\TurretDefenseProto\New Unity Project
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 111}
-    m_SelectedIDs: 28290000
-    m_LastClickedID: 10536
-    m_ExpandedIDs: 000000001e2800002a280000282900008a290000c8290000602a0000b22a0000ce2a0000122b0000842b0000a22b000050340000523400009845000000ca9a3bffffff7f
+    m_SelectedIDs: 682b0000
+    m_LastClickedID: 11112
+    m_ExpandedIDs: 000000001e2800002a2800003029000094290000d4290000742a0000c82a0000e42a00002a2b0000a22b0000c22b0000c8340000ca34000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -713,7 +713,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001e2800002a280000282900008a290000c8290000602a0000b22a0000ce2a0000122b0000842b0000a22b00005034000052340000
+    m_ExpandedIDs: 000000001e2800002a2800003029000094290000d4290000562a0000742a0000c82a0000e42a00002a2b0000a22b0000c22b0000c8340000ca340000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -741,21 +741,21 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c21b0000900500004c05000002050000960500008a53f9ffbe050000cc6d0100a80e0000d4040000d604000010390000000000002c58fdff
+    m_ExpandedInstanceIDs: c21b0000900500004c05000002050000960500008a53f9ffbe050000cc6d0100a80e0000d4040000d604000010390000000000002c58fdffa82900006a2b0000882a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Towers
+      m_OriginalName: Towers
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 11112
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
@@ -765,7 +765,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 9}
     m_GridSize: 16
   m_DirectoriesAreaWidth: 290
 --- !u!114 &22
@@ -798,18 +798,18 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 5600f8ff3898faff6a1cfbffbcf4fbffd0fefbff2400fcff6c01fcff0ad3fdff6afbffff6cfbffff1afcffff00000000162d00004a2d0000682d0000742d0000
+    m_ExpandedIDs: 4064fcff3065fcff4667fcffa675fcff9676fcffb478fcff52dcfcff42ddfcff58dffcffb8ecfcffa8edfcffc2effcff3218fdff5e60fdff5005ffff8e0effffdc1cffff64edffff34eeffff46f0ffff1afcffff000000001c3d0000403d0000563e0000a23e0000e83e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Ogre_Hitter
-      m_OriginalName: Ogre_Hitter
+      m_Name: Lost
+      m_OriginalName: Lost
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: -570444
+      m_UserData: 16034
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0

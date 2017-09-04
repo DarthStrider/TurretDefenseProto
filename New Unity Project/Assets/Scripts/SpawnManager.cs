@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class SpawnManager : MonoBehaviour 
@@ -27,11 +28,14 @@ public class SpawnManager : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI _wave;
 	[SerializeField] private int _deathCount;
 	[SerializeField] private TextMeshProUGUI _deathTotal;
+	[SerializeField] private GameObject _won;
+	[SerializeField] private GameObject _lost;
 
 	private int _wavesCount;
 	private int _waveCount;
 	private int _currentWave;
 	private int _deathAmount;
+	private bool _gameLost;
 
 	
 
@@ -54,6 +58,13 @@ public class SpawnManager : MonoBehaviour
 			_waveCount = _waves[_currentWave].Ogre + _waves[_currentWave].Orc + _waves[_currentWave].Troll;
 			StartCoroutine(StartWave());
 		}
+		else
+		{
+			if (!_gameLost)
+			{
+				_won.SetActive(true);
+			}
+		}
 	}
 
 	public void MonsterReachedGoal()
@@ -62,7 +73,8 @@ public class SpawnManager : MonoBehaviour
 		UpdateDeathCount();
 		if (_deathAmount == _deathCount)
 		{
-			
+			_lost.SetActive(true);
+			_gameLost = true;
 		}
 	}
 
@@ -108,6 +120,12 @@ public class SpawnManager : MonoBehaviour
 		InitializeMonster(MonsterTyoe.Orc, wave.Orc);
 		InitializeMonster(MonsterTyoe.Troll,wave.Troll);
 	}
+
+	public void ReloadGame()
+	{
+		SceneManager.LoadScene(0);
+	}
+	
 
 	private void InitializeMonster(MonsterTyoe type, int amount)
 	{

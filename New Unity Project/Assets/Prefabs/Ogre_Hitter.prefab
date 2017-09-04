@@ -2127,18 +2127,18 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 18f39aa887b2e43d7b4acb24bbf1c517, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.481
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 147
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -2572,7 +2572,7 @@ RectTransform:
   m_GameObject: {fileID: 128270}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 0.8862457, z: 2}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 22482528}
   - {fileID: 22438142}
@@ -2677,8 +2677,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5378d9a9edf11854186ba4220f53754b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 300
-  _movementSpeed: 12
+  _health: 400
+  _movementSpeed: 15
   _healthBar: {fileID: 11406054}
   _audioSource: {fileID: 8237242}
-  _goldGiven: 20
+  _goldGiven: 15

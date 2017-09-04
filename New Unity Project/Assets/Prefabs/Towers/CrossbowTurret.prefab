@@ -798,7 +798,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 190
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1286,23 +1286,24 @@ MonoBehaviour:
   _levels:
   - Gun: {fileID: 169104}
     LevelCost: 0
-    FireRate: 1.5
-    Damage: 20
-    SplashDamage: 0
-  - Gun: {fileID: 125846}
-    LevelCost: 10
     FireRate: 1
     Damage: 30
     SplashDamage: 0
+  - Gun: {fileID: 125846}
+    LevelCost: 10
+    FireRate: 0.75
+    Damage: 45
+    SplashDamage: 0
   - Gun: {fileID: 178398}
     LevelCost: 20
-    FireRate: 0.75
-    Damage: 30
+    FireRate: 0.5
+    Damage: 50
     SplashDamage: 0
   _upgradeTurret: {fileID: 1391646287587396}
   _projectile: {fileID: 1995582405907768, guid: d0a237eefe5435145ac6bfedb82d4006,
     type: 2}
   _firingDistance: 100
+  _audioSource: {fileID: 8289750}
 --- !u!114 &114564218195423992
 MonoBehaviour:
   m_ObjectHideFlags: 1

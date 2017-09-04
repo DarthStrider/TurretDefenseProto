@@ -21,6 +21,7 @@ public class Ogre : Monster {
 			_animator.SetBool ("move", false);
 			_animator.SetBool ("dead", true);
 			_agent.speed = 0;
+			_audioSource.Play();
 			StartCoroutine(WaitToDestroy());
 			EconomyManager.instance.Gold += _goldGiven;
 
@@ -38,7 +39,6 @@ public class Ogre : Monster {
 			var projectile = other.gameObject;
 			var pScript = projectile.GetComponent<Projectile>();
 			float damage = pScript.Damage;
-			_audioSource.Play();
 			TookDamage(damage);
 			Destroy(projectile);
 		}

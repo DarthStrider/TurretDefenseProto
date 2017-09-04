@@ -1007,13 +1007,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 30b50d6c18b1f4d1c981348aaaa6cd8d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 171
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1509,22 +1509,23 @@ MonoBehaviour:
   _levels:
   - Gun: {fileID: 178442}
     LevelCost: 0
-    FireRate: 4
+    FireRate: 2
     Damage: 30
     SplashDamage: 10
   - Gun: {fileID: 191302}
     LevelCost: 20
-    FireRate: 3.5
+    FireRate: 1.5
     Damage: 40
     SplashDamage: 15
   - Gun: {fileID: 185454}
     LevelCost: 40
-    FireRate: 3
+    FireRate: 1.25
     Damage: 50
     SplashDamage: 20
   _upgradeTurret: {fileID: 1917921352344260}
   _projectile: {fileID: 144062, guid: 9e55cf4574f6ae449a0cb84e16dc2bda, type: 2}
   _firingDistance: 100
+  _audioSource: {fileID: 8200148}
 --- !u!114 &114594217933404494
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 
@@ -14,6 +13,7 @@ public class Turret : MonoBehaviour
 	[SerializeField] private GameObject _upgradeTurret;
 	[SerializeField] protected GameObject _projectile;
 	[SerializeField] private float _firingDistance;
+	[SerializeField] private AudioSource _audioSource;
 
 	private TurretSpawning _spawn;
 	public TurretSpawning Spawn
@@ -122,6 +122,7 @@ public class Turret : MonoBehaviour
 			var projectile = Instantiate(_projectile, _level.Gun.transform.position, Quaternion.identity);
 			projectile.transform.forward = _level.Gun.transform.forward;
 			projectile.GetComponent<Projectile>().SetData(_level.Damage,target);
+			_audioSource.Play();
 		}
 		StartCoroutine (WaitToShoot ());
 	}
